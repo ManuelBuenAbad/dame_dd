@@ -6,8 +6,7 @@ To use simply do:
     >>> import dame_dd as de
 
 
-Please cite `Buch, Buen-Abad, Fan, & Leung (2020)
-<https://arxiv.org/abs/2007.13750>`_ if you use this
+Please cite [`Buch, Buen-Abad, Fan, & Leung (2020)`](https://arxiv.org/abs/2007.13750) if you use this
 code at all or find it useful in your research.
 
 The BibTeX entry for the paper is::
