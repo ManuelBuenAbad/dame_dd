@@ -6,10 +6,10 @@ To use simply do:
     >>> import dame_dd as de
 
 
-Please cite [`Buch, Buen-Abad, Fan, & Leung (2020)`](https://arxiv.org/abs/2007.13750) if you use this
-code at all or find it useful in your research.
+Please cite [Buch, Buen-Abad, Fan, & Leung (2020)](https://arxiv.org/abs/2007.13750) if you use this
+code or find it at all useful in your research.
 
-The BibTeX entry for the paper is::
+The BibTeX entry for the paper is:
 
     @article{Buch:2020xyt,
 		author = "Buch, Jatan and Buen-Abad, Manuel A. and Fan, Jiji and Leung, John Shing Chau",
