@@ -7,6 +7,17 @@ To use simply do:
 
     >>> import dame_dd as de
 
+There are three sub-modules: `de.ap` for astrophysics, `de.sc` for semiconductors, and `de.rt` for the scattering rates. A fourth one, `de.at` for atoms, will be added in the future.
+
+For help on how to use these modules, type:
+
+    >>> help(de.ap)
+    >>> help(de.sc)
+    >>> help(de.rt)
+
+
+Policy
+--------
 
 Please cite [Buch, Buen-Abad, Fan, & Leung (2020)](https://arxiv.org/abs/2007.13750) if you use this
 code or find it at all useful in your research.
