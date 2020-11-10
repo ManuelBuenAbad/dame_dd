@@ -88,7 +88,8 @@ year = 365.25 # in days
 
 
 # NUMERICAL PARAMETERS
-fileDirectory = "./astrophysics_data/"
+script_dir = str(__file__).rstrip('astrophysics.py')
+fileDirectory = script_dir+"astrophysics_data/"
 
 # The number of points in the arrays for the different variables
 v_pts = 1001 # increments of 1 km/s
@@ -566,21 +567,6 @@ Gaia_halo._N_esc = 0.9986426837618283
 
 
 
-Gaia_halo_median = DMVelDistr(
-                'Gaia_halo_median',
-                '1807.02519 Necib et al.',
-                'galacto-centric',
-                (3, 'spherical'),
-                np.array([0., 0., 0.]),
-                np.array([140.3, 125.9, 114.2]),
-                errors={'mean':(np.zeros(3), -np.zeros(3)), 'sigma':(np.array([+4.2, +4.1, +3.3]), np.array([-4.9, -3.4, -1.8]))},
-                truncated=True,
-                path=fileDirectory+"DM_Velocity_Distribution-master/f_v_halo_normalized.txt"
-                )
-Gaia_halo_median._N_esc = 0.999170851606421
-
-
-
 Gaia_sausage = DMVelDistr(
                 'Gaia_sausage',
                 '1807.02519 Necib et al. & files of sampled distributions',
@@ -596,35 +582,6 @@ Gaia_sausage._N_esc = 0.9998978371712317
 
 
 
-Gaia_sausage_median = DMVelDistr(
-                'Gaia_sausage_median',
-                '1807.02519 Necib et al.',
-                'galacto-centric',
-                (3, 'spherical'),
-                np.array([117.7, 35.5, -3.1]),
-                np.array([108.2, 61.2, 57.7]),
-                errors={'mean':(np.array([+1.8, +1.8, +0.9]), np.array([-2.1, -1.8, -0.9])), 'sigma':(np.array([+1.2, +1.5, +0.7]), np.array([-1.3, -1.5, -0.8]))},
-                truncated=True,
-                path=fileDirectory+"DM_Velocity_Distribution-master/f_v_substructure_normalized.txt"
-                )
-Gaia_sausage_median._N_esc = 0.9998950931731664
-
-
-
-Gaia_MB_helio = DMVelDistr(
-                'Gaia_MB_helio',
-                '1807.02519 Necib et al.',
-                'galacto-centric',
-                (1, 'spherical'),
-                vcGaia,
-                vcGaia/np.sqrt(2.),
-                truncated=False,
-                path=fileDirectory+"DM_Velocity_Distribution-master/maxwellboltzmann_helio.txt"
-                )
-Gaia_MB_helio._N_esc = 1.
-
-
-
 Nyx_stream = DMVelDistr(
                 'Nyx_stream',
                 '1907.07190 Necib et al.',
@@ -637,21 +594,6 @@ Nyx_stream = DMVelDistr(
                 path=None
                 )
 Nyx_stream._N_esc = 0.9999953557616433
-
-
-
-Nyx_stream_median = DMVelDistr(
-                'Nyx_stream_median',
-                '1907.07190 Necib et al.',
-                'galacto-centric',
-                (3, 'spherical'),
-                np.array([156.8, 141.0, -1.4]),
-                np.array([46.9, 52.5, 70.9]),
-                errors={'mean':(np.array([2.1, 2.5, 3.1]), np.array([-2.2, -2.6, -3.])), 'sigma':(np.array([1.7, 1.8, 2.4]), np.array([-1.6, -1.8, -2.2]))},
-                truncated=True,
-                path=None
-                )
-Nyx_stream_median._N_esc = 1.0000006156776917
 
 
 
@@ -700,170 +642,16 @@ S2b_stream._N_esc = 1.000176408295106
 
 
 
-Toy1_stream = DMVelDistr(
-                'Toy1_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 330.*eps0,
-                25.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy1_stream._N_esc = 0.906619684249287
-
-
-
-Toy2_stream = DMVelDistr(
-                'Toy2_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun + 330.*eps0,
-                25.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy2_stream._N_esc = 0.9402186375352796
-
-
-
-Toy3_stream = DMVelDistr(
-                'Toy3_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun + 330.*eps1,
-                25.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy3_stream._N_esc = 0.9371364767188394
-
-
-
-Toy4_stream = DMVelDistr(
-                'Toy4_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 230.*eps0,
-                25.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy4_stream._N_esc = 1.0444038405232918
-
-
-
-Toy5_stream = DMVelDistr(
-                'Toy5_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 430.*eps0,
-                25.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy5_stream._N_esc = 1.0164800109743395
-
-
-
-Toy6_stream = DMVelDistr(
-                'Toy6_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 330.*eps0,
-                50.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy6_stream._N_esc = 0.995679795338914
-
-
-
-Toy7_stream = DMVelDistr(
-                'Toy7_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 330.*eps0,
-                75.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy7_stream._N_esc = 0.9633167521402601
-
-
-
-Toy8_stream = DMVelDistr(
-                'Toy8_stream',
-                'Manuel\'s imagination',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                v_sun - 330.*eps0,
-                100.*np.ones(3),
-                truncated=True,
-                path=None
-                )
-Toy8_stream._N_esc = 0.893370896482584
-
-
-
-Sausage_plus = DMVelDistr(
-                'Sausage_plus',
-                '1807.02519 Necib et al.',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                np.array([117.7, 35.5, -3.1]),
-                np.array([108.2, 61.2, 57.7]),
-                truncated=True,
-                )
-Sausage_plus._N_esc = 1.
-Sausage_plus._N_esc *= Sausage_plus.integral()
-
-
-
-Sausage_minus = DMVelDistr(
-                'Sausage_minus',
-                '1807.02519 Necib et al.',
-                'galacto-centric',
-                (3, 'cylindrical'),
-                np.array([-117.7, 35.5, -3.1]),
-                np.array([108.2, 61.2, 57.7]),
-                truncated=True,
-                )
-Sausage_minus._N_esc = 1.
-Sausage_minus._N_esc *= Sausage_minus.integral()
-
-
-
 # The dictionary of all the DM components under consideration
 dark_matter_components = {
                             'SHM_default':SHM_default,
                             'SHM_infinity':SHM_infinity,
                             'Gaia_halo':Gaia_halo,
-                            'Gaia_halo_median':Gaia_halo_median,
                             'Gaia_sausage':Gaia_sausage,
-                            'Gaia_sausage_median':Gaia_sausage_median,
-                            'Gaia_MB_helio':Gaia_MB_helio,
                             'Nyx_stream':Nyx_stream,
-                            'Nyx_stream_median':Nyx_stream_median,
                             'S1_stream':S1_stream,
                             'S2a_stream':S2a_stream,
-                            'S2b_stream':S2b_stream,
-                            'Toy1_stream':Toy1_stream,
-                            'Toy2_stream':Toy2_stream,
-                            'Toy3_stream':Toy3_stream,
-                            'Toy4_stream':Toy4_stream,
-                            'Toy5_stream':Toy5_stream,
-                            'Toy6_stream':Toy6_stream,
-                            'Toy7_stream':Toy7_stream,
-                            'Toy8_stream':Toy8_stream,
-                            'Sausage_plus':Sausage_plus,
-                            'Sausage_minus':Sausage_minus
+                            'S2b_stream':S2b_stream
                         }
 
 #---------------------------------------------------------------------------------------------------

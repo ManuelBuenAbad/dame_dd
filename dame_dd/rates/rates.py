@@ -38,8 +38,8 @@ from itertools import cycle
 
 from scipy.integrate import simps
 
-import astrophysics as ap
-import semiconductors as sc
+from ..astrophysics import astrophysics as ap
+from ..semiconductors import semiconductors as sc
 
 #---------------------------------------------------------------------------------------------------
 
@@ -53,6 +53,7 @@ rho_chi = 0.4e9 #local DM density [eV/cm^3]
 
 
 # NUMERICAL PARAMETERS
+script_dir = str(__file__).rstrip('rates.py')
 fileDirectory = "./rates_data/"
 
 qunit = 0.02*a_em*meeV # eV
@@ -66,15 +67,10 @@ wk = 2./k_mesh # according to the convention from Quantum Espresso (see below Eq
 EGr, qGr = np.meshgrid(sc.E_arr, sc.q_arr, indexing='ij')
 
 # FUNCTIONS DICTIONARY
-components = ['SHM_default', 'SHM_infinity', 'Gaia_halo', 'Gaia_halo_median', 'Gaia_sausage', 'Gaia_sausage_median', 'S1_stream', 'Nyx_stream', 'Nyx_stream_median', 'S2a_stream', 'S2b_stream'] # the DM components we will consider
-# components = ap.dark_matter_components.keys() # all the DM components defined in the astrophysics module
+components = ap.dark_matter_components.keys() # all the DM components defined in the astrophysics module
 
 fn_dir = ap.init_fns(components=components, methods=['gvmin']) # defining the dictionary of functions with default parameters
 # fn_dir = init_fns(components=components, methods=[], vArr=, timeArr=, vboost=, vsun=, t1=, from_scratch=, taken_from=, arrays=) # with other parameters
-
-fn_dir['SHM_old_March', 'gvmin', 'v'] = ap.int_fn_of_avg_v('SHM_old_March', 'gvmin')
-fn_dir['SHM_old_June', 'gvmin', 'v'] = ap.int_fn_of_avg_v('SHM_old_June', 'gvmin')
-fn_dir['SHM_old_December', 'gvmin', 'v'] = ap.int_fn_of_avg_v('SHM_old_December', 'gvmin')
 
 #---------------------------------------------------------------------------------------------------
 
