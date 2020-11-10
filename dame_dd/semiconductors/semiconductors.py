@@ -34,6 +34,7 @@
 
 from __future__ import division # for division operator
 import numpy as np
+import os
 
 #---------------------------------------------------------------------------------------------------
 
@@ -46,7 +47,8 @@ meeV = 0.511e6 # electron mass [eV]
 ccms = 2.99792458e10 # speed of light [cm/s]
 
 # NUMERICAL PARAMETERS
-fileDirectory = "./semiconductors_data/essig_crystal_form_factors/"
+script_dir = str(__file__).rstrip('semiconductors.py')
+fileDirectory = script_dir+"semiconductors_data/essig_crystal_form_factors/"
 
 qunit = 0.02*a_em*meeV # eV
 Eunit = 0.1 # eV

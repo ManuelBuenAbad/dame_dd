@@ -6,12 +6,12 @@ def readme():
 
 setup(name='dame_dd',
       version='0.1',
-      description='some words for description',
+      url='http://github.com/ManuelBuenAbad/dame_dd',
+      description="A python code to compute the impact of dark matter substructure on direct detection efforts via electron scattering.",
       long_description=readme(),
-      url='http://github.com/buenabad/dame_dd',
       author='Manuel Buen-Abad',
       author_email='manuelbuenabadnajar@gmail.com',
-      license='Brown',
+      license='MIT',
       packages=['dame_dd'],
       install_requires=[
           'numpy'

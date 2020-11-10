@@ -1,6 +1,8 @@
 dame_dd
 --------
 
+Welcome to dame_dd, a python code that to compute the impact of dark matter substructure on direct detection experiments relying on dark matter-electron scattering.
+
 To use simply do:
 
     >>> import dame_dd as de
