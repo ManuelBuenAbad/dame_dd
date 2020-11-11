@@ -54,7 +54,7 @@ rho_chi = 0.4e9 #local DM density [eV/cm^3]
 
 # NUMERICAL PARAMETERS
 script_dir = str(__file__).rstrip('rates.py')
-fileDirectory = "./rates_data/"
+fileDirectory = script_dir+"rates_data/"
 
 qunit = 0.02*a_em*meeV # eV
 Eunit = 0.1 # eV
